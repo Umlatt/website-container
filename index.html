@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Server Status</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #111;
+      color: #eee;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .loader {
+      border: 6px solid #333;
+      border-top: 6px solid #99ccff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 1rem;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .status {
+      margin-top: 1rem;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      background: #222;
+      border: 1px solid #444;
+    }
+    .secure {
+      color: #0f0;
+    }
+    .insecure {
+      color: #f00;
+    }
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.8rem;
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="loader"></div>
+  <h1>Web Server is Online</h1>
+  <div id="connectionStatus" class="status">Checking connection security...</div>
+  <footer>Simple splash page &mdash; No tracking, just vibes.</footer>
+  <script>
+    const statusEl = document.getElementById("connectionStatus");
+    const isSecure = window.location.protocol === "https:";
+    if (isSecure) {
+      statusEl.textContent = "Secure Connection (HTTPS)";
+      statusEl.classList.add("secure");
+    } else {
+      statusEl.textContent = "Insecure Connection (HTTP)";
+      statusEl.classList.add("insecure");
+    }
+  </script>
+</body>
+</html>
