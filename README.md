@@ -2,7 +2,7 @@
 
 This is a very simple project that deploys a simple website-in-container to listen on port `80` and `443` for helping configure things like reverse proxies.
 
-![Image](./media/image.png)
+![Image](./media/image2.png)
 
 ## Basic Usage
 
